@@ -1,4 +1,6 @@
 #!/bin/sh
+# Copyright 2020, Collabora, Ltd.
+# SPDX-License-Identifier: BSL-1.0
 
 wrap_line_in_ndef_avr() {
     sed -i -e "/$1/i #ifndef __AVR__" -e "/$1/a #endif" $2

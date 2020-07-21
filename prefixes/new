@@ -1,3 +1,10 @@
+//===----------------------------------------------------------------------===//
+//
+// Copyright 2020, Collabora, Ltd.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+//
+//===----------------------------------------------------------------------===//
+
 #ifndef _NEW_PREFIX
 #define _NEW_PREFIX
 

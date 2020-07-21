@@ -1,3 +1,9 @@
+//===----------------------------------------------------------------------===//
+//
+// Copyright 2020, Collabora, Ltd.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+//
+//===----------------------------------------------------------------------===//
 
 // No implementation of random
 #undef _LIBCPP_USING_DEV_RANDOM
