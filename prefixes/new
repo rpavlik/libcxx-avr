@@ -1,0 +1,7 @@
+#ifndef _NEW_PREFIX
+#define _NEW_PREFIX
+
+// Arduino provides <new> which wraps their <new.h>
+#include <new.h>
+
+#endif

@@ -55,10 +55,45 @@ wrap_line_in_ndef_avr() {
     -e '/^\/\/ scalbln/i #ifndef __AVR__' \
     -e '/^\/\/ trunc/i #endif' \
     "${DIR}/math.h"
-    # Drop rint entirely
+    # Drop nearbyint, nextafter, nexttoward, remainder, remquo, rint entirely
     sed -i \
-    -e '/^\/\/ rint/i #ifndef __AVR__' \
-    -e '/^\/\/ round/i #endif' "${DIR}/math.h"
-    # wrap_line_in_ndef_avr "_LIBCPP_INLINE_VISIBILITY float       tgamma" ${DIR}/math.h
-    # wrap_line_in_ndef_avr "_LIBCPP_INLINE_VISIBILITY long double tgamma" ${DIR}/math.h
+    -e '/^\/\/ nearbyint/i #ifndef __AVR__' \
+    -e '/^\/\/ round/i #endif' \
+    "${DIR}/math.h"
+    # Drop ilogb, lgamma, llrint, llround, log1p, log2, logb entirely
+    sed -i \
+    -e '/^\/\/ ilogb/i #ifndef __AVR__' \
+    -e '/^\/\/ lrint/i #endif' \
+    "${DIR}/math.h"
+    # Drop erf, erfc, exp2, expm1 entirely
+    sed -i \
+    -e '/^\/\/ erf\b/i #ifndef __AVR__' \
+    -e '/^\/\/ fdim/i #endif' \
+    "${DIR}/math.h"
+    # Drop tanh, acosh, asinhatanh entirely
+    sed -i \
+    -e '/^\/\/ tanh\b/i #ifndef __AVR__' \
+    -e '/^\/\/ cbrt/i #endif' \
+    "${DIR}/math.h"
+    
+    # Cope with Arduino's <new> and <new.h>
+    mv ${DIR}/new ${DIR}/_libcpp_new.h
+    sed -i 's/include <new>/include "_libcpp_new.h"/' ${DIR}/*
+    
+    # Drop threading-related files
+    rm -f \
+    ${DIR}/atomic \
+    ${DIR}/barrier \
+    ${DIR}/future \
+    ${DIR}/latch \
+    ${DIR}/mutex \
+    ${DIR}/semaphore \
+    ${DIR}/shared_mutex \
+    ${DIR}/threads \
+
+    # Drop other unsupported things
+    rm -f \
+    ${DIR}/filesystem \
+    ${DIR}/module.modulemap \
+    
 )
