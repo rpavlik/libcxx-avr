@@ -1,0 +1,32 @@
+//===----------------------------------------------------------------------===//
+//
+//                     The LLVM Compiler Infrastructure
+//
+// This file is dual licensed under the MIT and the University of Illinois Open
+// Source Licenses. See LICENSE.TXT for details.
+//
+//===----------------------------------------------------------------------===//
+
+// This is hand-generated from __config_site.in for use on AVR/Arduino
+
+#ifndef _LIBCPP_CONFIG_SITE
+#define _LIBCPP_CONFIG_SITE
+
+#define _LIBCPP_HAS_NO_GLOBAL_FILESYSTEM_NAMESPACE
+#define _LIBCPP_HAS_NO_STDIN
+#define _LIBCPP_HAS_NO_STDOUT
+#define _LIBCPP_HAS_NO_THREADS
+#define _LIBCPP_HAS_NO_MONOTONIC_CLOCK
+#define _LIBCPP_HAS_NO_THREAD_UNSAFE_C_FUNCTIONS
+#define _LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS
+#define _LIBCPP_NO_VCRUNTIME
+
+#define _LIBCPP_HAS_NO_LONG_LONG
+#define _LIBCPP_HAS_NO_UNICODE_CHARS
+
+// This is a directive added by this project - not in upstream libc++
+#define _LIBCPP_HAS_NO_MULTIBYTE
+
+#define LIBCXX_ABI_UNSTABLE
+
+#endif // _LIBCPP_CONFIG_SITE

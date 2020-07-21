@@ -1,0 +1,28 @@
+#ifndef _CSTDLIB_PREFIX
+#define _CSTDLIB_PREFIX
+
+#ifdef __AVR__
+
+#include <stdlib.h>
+
+/*!
+ * No distinction between this and strtod on AVR - all floats are the same size.
+ */
+static inline double strtof(const char *str, char **str_end) {
+    return strtod(str, str_end);
+}
+/*!
+ * No distinction between this and strtod on AVR - all floats are the same size.
+ */
+static inline long double strtold(const char *str, char **str_end) {
+    return strtod(str, str_end);
+}
+
+/*!
+ * No distinction between this and abort on a system with no concept of
+ * processes.
+ */
+static inline void _Exit() { abort(); }
+#endif // __AVR__
+
+#endif

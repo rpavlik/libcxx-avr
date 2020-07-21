@@ -1,0 +1,21 @@
+#ifndef _UTILITY_SUFFIX
+#define _UTILITY_SUFFIX
+
+#include <stdint.h>
+
+_LIBCPP_BEGIN_NAMESPACE_STD
+
+template <class _Size>
+struct __murmur2_or_cityhash<_Size, 16> {
+    inline _Size operator()(const void* __key, _Size __len) {
+        __murmur2_or_cityhash<uint32_t> delegate;
+        auto result = delegate(__key, __len);
+        return (result & 0xffff) ^ ((result >> 16) & 0xffff);
+    }
+
+};
+
+
+_LIBCPP_END_NAMESPACE_STD
+
+#endif // !_UTILITY_SUFFIX
