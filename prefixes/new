@@ -9,6 +9,10 @@
 #define _NEW_PREFIX
 
 // Arduino provides <new> which wraps their <new.h>
+#if defined __has_include
+#if __has_include(<new.h>)
 #include <new.h>
+#endif // __has_include(<new.h>)
+#endif // defined __has_include
 
-#endif
+#endif // !_NEW_PREFIX
